@@ -35,13 +35,13 @@ class JSONParser extends JavaTokenParsers {
   def evaluate(json:String):Option[State] =
     parseAll(obj, json) match {
       case Success(result, _) =>
-        log.debug("successfully parsed json:\n"+json+"\nresult:\n"+result)
+        log.debug(s"successfully parsed json:\n$json\nresult:\n$result")
         Some(result)
       case x @ Failure(msg, _) => // maybe throw exceptions instead
-        log.error("failed to parse json: "+msg+"\njson string corrupted:\n"+json)
+        log.error(s"failed to parse json:\n$msg\njson string corrupted:\n$json")
         None
       case x @ Error(msg, _) =>
-        log.error("failed to parse json: "+msg+"\njson string corrupted:\n"+json)
+        log.error(s"failed to parse json:\n$msg\njson string corrupted:\n$json")
         None
     }
 }

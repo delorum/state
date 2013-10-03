@@ -182,6 +182,12 @@ class State(args:Any*) extends Map[String, Any] {
   def +[B1 >: Any](kv: (String, B1)): State = State(kv :: iterator.toList:_*)
 
   override def ++[B1 >: Any](xs: GenTraversableOnce[(String, B1)]): State = State(iterator.toList ::: xs.toList:_*)
+
+  def newBuilder:StateBuilder = {
+    val b = new StateBuilder
+    b ++= this
+    b
+  }
 }
 
 class StateBuilder {
@@ -191,6 +197,7 @@ class StateBuilder {
   def toState = State(inner_buffer:_*)
   def clear() {inner_buffer.clear()}
   def nonEmpty:Boolean = {inner_buffer.nonEmpty}
+  def isEmpty:Boolean = {inner_buffer.isEmpty}
 }
 
 object State {
@@ -209,5 +216,5 @@ object State {
     case None => default_state
   }
 
-  def newBuilder = new StateBuilder
+  def newBuilder:StateBuilder = new StateBuilder
 }

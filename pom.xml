@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.dunnololda</groupId>
-  <artifactId>state_${scala.version}</artifactId>
+  <artifactId>state_${publish.scala.version}</artifactId>
   <version>1.0</version>
   <name>${project.artifactId}</name>
   <description>Universal data container</description>
@@ -18,7 +18,8 @@
     <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.target>1.6</maven.compiler.target>
     <encoding>UTF-8</encoding>
-    <scala.version>2.10.0</scala.version>
+    <scala.version>2.10.2</scala.version>
+    <publish.scala.version>2.10</publish.scala.version>
     <github.global.server>github</github.global.server>
   </properties>
 

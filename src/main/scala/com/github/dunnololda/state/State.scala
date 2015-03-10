@@ -12,11 +12,11 @@ class State(args:Any*) extends Map[String, Any] {
   
   //add(args:_*)
   private val inner_map:Map[String, Any] = {
-    val pewpew = args.flatMap(_ match {
-      case elem:(String, Any) => List(elem)
-      case elem:State => elem.toList
-      case elem:Any => List(elem.toString -> true)
-    })
+    val pewpew = args.flatMap {
+      case elem: (String, Any) => List(elem)
+      case elem: State => elem.toList
+      case elem: Any => List(elem.toString -> true)
+    }
     Map(pewpew:_*)
   }
 
@@ -183,9 +183,9 @@ class State(args:Any*) extends Map[String, Any] {
 
   override def ++[B1 >: Any](xs: GenTraversableOnce[(String, B1)]): State = State(iterator.toList ::: xs.toList:_*)
 
-  def newBuilder:StateBuilder = {
+  def newStateBuilder:StateBuilder = {
     val b = new StateBuilder
-    b ++= this
+    b ++= this.inner_map.toSeq
     b
   }
 }
@@ -217,4 +217,5 @@ object State {
   }
 
   def newBuilder:StateBuilder = new StateBuilder
+  def newStateBuilder:StateBuilder = new StateBuilder
 }

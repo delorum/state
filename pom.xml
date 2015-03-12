@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.dunnololda</groupId>
   <artifactId>state_${publish.scala.version}</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
   <name>${project.artifactId}</name>
   <description>Universal data container</description>
   <inceptionYear>2013</inceptionYear>
@@ -23,15 +23,14 @@
     <github.global.server>github</github.global.server>
   </properties>
 
-<!--
-  <repositories>
-    <repository>
-      <id>scala-tools.org</id>
-      <name>Scala-Tools Maven2 Repository</name>
-      <url>http://scala-tools.org/repo-releases</url>
-    </repository>
-  </repositories>
 
+  <repositories>
+      <repository>
+          <id>dunnololda's maven repo</id>
+          <url>https://raw.github.com/dunnololda/mvn-repo/master</url>
+      </repository>
+  </repositories>
+<!--
   <pluginRepositories>
     <pluginRepository>
       <id>scala-tools.org</id>
@@ -56,6 +55,11 @@
           <groupId>org.slf4j</groupId>
           <artifactId>slf4j-api</artifactId>
           <version>1.6.1</version>
+      </dependency>
+      <dependency>
+          <groupId>com.github.dunnololda</groupId>
+          <artifactId>mysimplelogger_2.10</artifactId>
+          <version>1.2</version>
       </dependency>
 
     <!-- Test -->

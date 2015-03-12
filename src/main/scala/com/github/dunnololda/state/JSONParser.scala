@@ -1,5 +1,7 @@
 package com.github.dunnololda.state
 
+import com.github.dunnololda.mysimplelogger.MySimpleLogger
+
 import scala.util.parsing.combinator._
 
 /**
